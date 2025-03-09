@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .slider {
+            width: 80%;
+            max-width: 600px;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-top: 5rem;
+        }
+        
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .slides img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .slider {
+                width: 90%;
+                margin-top: 2rem;
+            }
+        }
+        
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            width: 100%;
+            max-width: 700px;
+            margin-top: 1rem;
+        }
+        
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0.5rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .icon-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .icon-item i {
+            font-size: 1.5rem;
+            color: #04A0D2;
+            margin-bottom: 0.25rem;
+        }
+        
+        .icon-item span {
+            font-size: 0.75rem;
+            color: #333;
+        }
+        
+        .menu-koin {
+            width: 100%;
+            max-width: 900px;
+            padding: 16px;
+            margin-top: 1rem;
+        }
+        
+        .zontainer {
+            background-color: #02799e;
+            color: white;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .saldo {
+            background-color: white;
+            color: #333;
+            border-radius: 10px;
+            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 12px;
+        }
+        
+        .saldo img {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .saldo div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .saldo p {
+            margin: 0;
+            width: 60%;
+        }
+        
+        .saldo .total {
+            font-size: 14px;
+            font-weight: 500;
+            width: 100%;
+        }
+        
+        .total {
+            white-space: nowrap;
+        }
+        
+        .saldo .jumlah {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .cek-riwayat {
+            font-size: 12px;
+            color: green;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            padding-left: 3rem;
+        }
+        
+        .menu-aksi {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+        }
+        
+        .aksi-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            margin: 0 2rem;
+        }
+        
+        .aksi-item div {
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .aksi-item img {
+            width: 28px;
+            height: 28px;
+        }
+        
+        .aksi-item .topup {
+            border-radius: 12px;
+            transform: scale(1.1);
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav__img {
+            margin-right: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">codeweb.id | syafiq</a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link ">
+                            <i class='bx bx-home-alt nav__icon'></i>
+                            <span class="nav__name">Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="about.html" class="nav__link active-link">
+                            <i class='bx bx-user nav__icon'></i>
+                            <span class="nav__name">About</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#skills" class="nav__link">
+                            <i class='bx bx-award nav__icon'></i>
+                            <span class="nav__name">Skills</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#portfolio" class="nav__link">
+                            <i class='bx bx-briefcase-alt nav__icon'></i>
+                            <span class="nav__name">Portfolio</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#contactme" class="nav__link">
+                            <i class='bx bx-message-square-detail nav__icon'></i>
+                            <span class="nav__name">Contactme</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <img src="logonew-removebg-preview (1).png" alt="" class="nav__img">
+        </nav>
+    </header>
+    <div class="slider" style="margin-top: 4rem;">
+        <div class="slides">
+            <img src="mosque.png" alt="Slide 1">
+            <img src="https://via.placeholder.com/600x400?text=Slide+2" alt="Slide 2">
+            <img src="https://via.placeholder.com/600x400?text=Slide+3" alt="Slide 3">
+        </div>
+    </div>
+    <section class="menu-koin">
+        <div class="zontainer">
+            <!-- Bagian Saldo -->
+            <div class="saldo">
+                <div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/2890/2890330.png" alt="Koin">
+                    <div>
+                        <p class="total">Total pahala :</p>
+                        <p class="jumlah">0</p>
+                    </div>
+                </div>
+                <p class="cek-riwayat">Klik & cek Riwayat</p>
+            </div>
+
+            <!-- Menu Aksi -->
+            <div class="menu-aksi">
+                <div class="aksi-item">
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Bayar">
+                    </div>
+                    <p>Bayar</p>
+                </div>
+
+                <div class="aksi-item">
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Top Up">
+                    </div>
+                    <p>Top Up</p>
+                </div>
+
+                <div class="aksi-item">
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Eksplor">
+                    </div>
+                    <p>Eksplor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Tambahkan section baru DI LUAR slider -->
+    <section class="about">
+        <div class="icon-grid">
+            <div class="icon-item">
+                <i class='bx bx-book-open'></i>
+                <span>Al Qur'an</span>
+            </div>
+            <div class="icon-item">
+                <i class='bx bx-calculator'></i>
+                <span>zakat</span>
+            </div>
+            <div class="icon-item">
+                <i class='bx bx-donate-heart'></i>
+                <span>Sedekah</span>
+            </div>
+
+            <div class="icon-item">
+                <i class='bx bx-moon'></i>
+                <span>Ramadhan</span>
+            </div>
+            <div class="icon-item">
+                <i class='bx bx-time-five'></i>
+                <span>sholat</span>
+            </div>
+            <div class="icon-item">
+                <i class='bx bx-diamond'></i>
+                <span>Zikir</span>
+            </div>
+            <div class="icon-item">
+                <i class='bx bx-alarm'></i>
+                <span>Imsak</span>
+            </div>
+            <div class="icon-item">
+                <i class='bx bx-chat'></i>
+                <span>contact me</span>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <script>
+        const slides = document.querySelector('.slides');
+        const images = document.querySelectorAll('.slides img');
+        let index = 0;
+        const intervalTime = 3000;
+
+        function nextSlide() {
+            index++;
+            if (index >= images.length) {
+                index = 0;
+            }
+            slides.style.transform = `translateX(${-index * 100}%)`;
+        }
+
+        setInterval(nextSlide, intervalTime);
+
+        let startX;
+        let isDragging = false;
+
+        slides.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        });
+
+        slides.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const touch = e.touches[0];
+            const moveX = touch.clientX - startX;
+            slides.style.transform = `translateX(${-index * 100 + moveX / slides.clientWidth * 100}%)`;
+        });
+
+        slides.addEventListener('touchend', (e) => {
+            isDragging = false;
+            const endX = e.changedTouches[0].clientX;
+            const moveX = endX - startX;
+            if (moveX > 50) {
+                index--;
+                if (index < 0) {
+                    index = images.length - 1;
+                }
+            } else if (moveX < -50) {
+                index++;
+                if (index >= images.length) {
+                    index = 0;
+                }
+            }
+            slides.style.transform = `translateX(${-index * 100}%)`;
+        });
+    </script>
+</body>
+
+</html>
